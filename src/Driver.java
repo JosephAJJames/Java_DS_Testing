@@ -1,5 +1,4 @@
 
-
 import java.util.*;
 
 public class Driver implements CollectionTest {
@@ -61,45 +60,106 @@ public class Driver implements CollectionTest {
         }
 
         if (Ll && Add) {
-            long startTime = System.currentTimeMillis();
+            for (int x = 0; x < iterations; x++) {
+                long startTime = System.currentTimeMillis();
+                for (int i = 0; i < size; i++) {
+                    Person person = new Person("Bob", 21);
+                    hashTable.put(i, person);
+                }
+                long endTime = System.currentTimeMillis();
+                elapsedTime = endTime - startTime;
+                iterationValues[x] = elapsedTime;
+            }
+        } else if (Ll && Index) {
             for (int i = 0; i < size; i++) {
                 Person person = new Person("Bob", 21);
                 linkedList.add(person);
             }
-            long endTime = System.currentTimeMillis();
-            elapsedTime = endTime - startTime;
+            int min = 0;
+            int max = size;
 
-        } else if (Ll && Index) {
+            Random random = new Random();
+            for (int x = 0; x < iterations; x++) {
+                int i = random.nextInt(max - min + 1) + min;
+                long startTime = System.currentTimeMillis();
+                Person person = (Person) linkedList.get(i);
+                
+                long endTime = System.currentTimeMillis();
+                elapsedTime = endTime - startTime;
+                iterationValues[x] = elapsedTime;
+            }
 
         } else if (Ll && Search) {
 
+
+            
         }
 
         if (Al && Add) {
-            long startTime = System.currentTimeMillis();
-            for (int i = 0; i < size; i++) {
-                Person person = new Person("Bob", 21);
-                arrayList.add(person);
+            for (int x = 0; x < iterations; x++) {
+                long startTime = System.currentTimeMillis();
+                for (int i = 0; i < size; i++) {
+                    Person person = new Person("Bob", 21);
+                    hashTable.put(i, person);
+                }
+                long endTime = System.currentTimeMillis();
+                elapsedTime = endTime - startTime;
+                iterationValues[x] = elapsedTime;
             }
-            long endTime = System.currentTimeMillis();
-            elapsedTime = endTime - startTime;
         } else if (Al && Index) {
 
+
+            for (int i = 0; i < size; i++) {
+                Person person = new Person("Bob", 21);
+                linkedList.add(person);
+            }
+            int min = 0;
+            int max = size;
+
+            Random random = new Random();
+            for (int x = 0; x < iterations; x++) {
+                int i = random.nextInt(max - min + 1) + min;
+                long startTime = System.currentTimeMillis();
+                Person person = (Person) arrayList.get(i);
+                
+                long endTime = System.currentTimeMillis();
+                elapsedTime = endTime - startTime;
+                iterationValues[x] = elapsedTime;
+            }
+
+            
+
         } else if (Al && Search) {
+
+
 
         }
 
         if (Hm && Add) {
-            long startTime = System.currentTimeMillis();
-            for (int i = 0; i < size; i++) {
-                Person person = new Person("Bob", 21);
-                hashTable.put(person, i);
+
+            for (int x = 0; x < iterations; x++) {
+                long startTime = System.currentTimeMillis();
+                for (int i = 0; i < size; i++) {
+                    Person person = new Person("Bob", 21);
+                    hashTable.put(i, person);
+                }
+                long endTime = System.currentTimeMillis();
+                elapsedTime = endTime - startTime;
+                iterationValues[x] = elapsedTime;
             }
-            long endTime = System.currentTimeMillis();
-            elapsedTime = endTime - startTime;
+
         } else if (Hm && Index) {
 
+
+
+
+
+
         } else if (Hm && Search) {
+
+
+
+
 
         }
 

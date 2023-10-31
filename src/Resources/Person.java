@@ -1,3 +1,5 @@
+package src.Resources;
+
 public class Person
 {
     private int age;

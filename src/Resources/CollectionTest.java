@@ -1,3 +1,5 @@
+package src.Resources;
+
 public interface CollectionTest
 {
     public enum CollectionType

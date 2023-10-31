@@ -1,9 +1,9 @@
-package src.Resources;
+
 
 import java.util.*;
 
 public class Driver implements CollectionTest {
-    private HashMap hashTable = new HashMap<Person, Integer>();
+    private HashMap hashTable = new HashMap<Integer, Person>();
 
     private LinkedList linkedList = new LinkedList<Person>();
 
@@ -14,8 +14,10 @@ public class Driver implements CollectionTest {
     public Driver() {
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
+        Driver code = new Driver();
+        code.runTest(CollectionType.LINKED_LIST, TestType.ADD, 5);
     }
 
     public void setSize(int size) {
@@ -26,6 +28,8 @@ public class Driver implements CollectionTest {
     }
 
     public void runTest(CollectionType type, TestType test, int iterations) {
+        long elapsedTime = 0;
+        long[] iterationValues = new long[iterations];
         boolean Add = false, Index = false, Search = false;
         switch (test) {
             case ADD:
@@ -59,17 +63,46 @@ public class Driver implements CollectionTest {
         if (Ll && Add) {
             long startTime = System.currentTimeMillis();
             for (int i = 0; i < size; i++) {
-                Person person = new Person("Bob", 21); // Assuming you have a Person class
+                Person person = new Person("Bob", 21);
                 linkedList.add(person);
             }
             long endTime = System.currentTimeMillis();
-            long elapsedTime = endTime - startTime;
+            elapsedTime = endTime - startTime;
+
         } else if (Ll && Index) {
 
         } else if (Ll && Search) {
 
         }
 
+        if (Al && Add) {
+            long startTime = System.currentTimeMillis();
+            for (int i = 0; i < size; i++) {
+                Person person = new Person("Bob", 21);
+                arrayList.add(person);
+            }
+            long endTime = System.currentTimeMillis();
+            elapsedTime = endTime - startTime;
+        } else if (Al && Index) {
 
+        } else if (Al && Search) {
+
+        }
+
+        if (Hm && Add) {
+            long startTime = System.currentTimeMillis();
+            for (int i = 0; i < size; i++) {
+                Person person = new Person("Bob", 21);
+                hashTable.put(person, i);
+            }
+            long endTime = System.currentTimeMillis();
+            elapsedTime = endTime - startTime;
+        } else if (Hm && Index) {
+
+        } else if (Hm && Search) {
+
+        }
+
+        System.out.println(elapsedTime);
     }
 }

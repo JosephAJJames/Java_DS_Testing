@@ -1,4 +1,4 @@
-package src.Resources;
+
 
 public interface CollectionTest
 {
